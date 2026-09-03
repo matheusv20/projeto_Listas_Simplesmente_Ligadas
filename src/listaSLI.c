@@ -101,6 +101,7 @@ int obterValorInicioSLI(ListaSLI *pontLista)
 
 }
 
+
 int obterValorFimSLI(ListaSLI *pontLista)
 {
     //VAZIA
@@ -119,6 +120,29 @@ int obterValorFimSLI(ListaSLI *pontLista)
             pontAux = pontAux->proximo;
         }
         return pontAux->valor;
+    }
+}
+
+
+// 0 -  NÃO REMOVEU
+// 1 - REMOVEU
+int removerInicioLSLI(ListaSLI *pontLista)
+{
+    //VAZIA
+    if (pontLista->inicio == NULL)
+    {
+        printf("Lista Vazia! ");
+        return 0;
+    }
+
+    // 1 ou + DE 1 ELEMENTO
+    else
+    {
+        NoSLI *pontAux = pontLista->inicio;
+
+        pontAux->proximo = pontLista->inicio->proximo
+
+        pontLista =
     }
 }
 

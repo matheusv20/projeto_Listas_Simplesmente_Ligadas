@@ -15,12 +15,12 @@ ListaSLI * criarListaSLI();
 void mostrarListaSLI(ListaSLI *pontLista);
 
 void inserirFimSLI(int valor, ListaSLI *pontLista);
-
 void InserirInicioSLI(int valor, ListaSLI *pontLista);
 
 int obterValorInicioSLI(ListaSLI *pontLista);
-
 int obterValorFimSLI(ListaSLI *pontLista);
+
+int removerInicioLSLI(ListaSLI *pontLista);
 
 
 
