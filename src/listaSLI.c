@@ -82,3 +82,6 @@ void InserirInicioSLI(int valor, ListaSLI *pontLista)
     pontLista->tamanho++; //C mesmo passo para todas opções 
 
 }
+
+int obterValorInicioSLI(ListaSLI *pontLista);
+
