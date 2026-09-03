@@ -83,5 +83,42 @@ void InserirInicioSLI(int valor, ListaSLI *pontLista)
 
 }
 
-int obterValorInicioSLI(ListaSLI *pontLista);
+int obterValorInicioSLI(ListaSLI *pontLista)
+{
+    // VAZIA
+    if (pontLista->inicio == NULL)
+    {
+        printf("Lista Vazia! ");
+        return 0;
+    }
+
+    // 1 OU + DE 1 ELEMENTO
+    else
+    {
+        return pontLista->inicio->valor;
+    }
+
+
+}
+
+int obterValorFimSLI(ListaSLI *pontLista)
+{
+    //VAZIA
+    if (pontLista->inicio == NULL)
+    {
+        printf("Lista Vazia! ");
+        return 0;
+    }
+
+    // 1 OU + DE 1 ELEMENTO
+    else
+    {
+        NoSLI *pontAux = pontLista->inicio;
+        while (pontAux->proximo != NULL)
+        {
+            pontAux = pontAux->proximo;
+        }
+        return pontAux->valor;
+    }
+}
 

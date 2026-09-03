@@ -20,5 +20,8 @@ void InserirInicioSLI(int valor, ListaSLI *pontLista);
 
 int obterValorInicioSLI(ListaSLI *pontLista);
 
+int obterValorFimSLI(ListaSLI *pontLista);
+
+
 
 #endif

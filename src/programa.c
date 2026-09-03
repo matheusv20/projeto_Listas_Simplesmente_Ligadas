@@ -21,6 +21,13 @@ int main()
     printf("-> PELO FIM: ");
     espaco();
 
+    printf("Primeiro Elemento da Lista: %d", obterValorInicioSLI(lista));
+    espaco();
+
+    printf("Ultimo Elemento da Lista: %d", obterValorFimSLI(lista));
+    espaco();
+    espaco();
+
     mostrarListaSLI(lista);
     espaco();
 
@@ -36,10 +43,24 @@ int main()
     mostrarListaSLI(lista);
     espaco();
 
+    printf("Primeiro Elemento da Lista: %d", obterValorInicioSLI(lista));
+    espaco();
+
+    printf("Ultimo Elemento da Lista: %d", obterValorFimSLI(lista));
+    espaco();
+    espaco();
+
     printf("-> PELO INÍCIO: ");
     espaco();
 
     mostrarListaSLI(lista2);
+    espaco();
+
+    printf("Primeiro Elemento da Lista: %d", obterValorInicioSLI(lista2));
+    espaco();
+
+    printf("Ultimo Elemento da Lista: %d", obterValorFimSLI(lista2));
+    espaco();
     espaco();
 
     InserirInicioSLI(55, lista2);
@@ -52,6 +73,12 @@ int main()
 
     InserirInicioSLI(100, lista2);
     mostrarListaSLI(lista2);
+    espaco();
+
+    printf("Primeiro Elemento da Lista: %d", obterValorInicioSLI(lista2));
+    espaco();
+
+    printf("Ultimo Elemento da Lista: %d", obterValorFimSLI(lista2));
     espaco();
 
 
