@@ -3,7 +3,7 @@
 
 ListaSLI * criarListaSLI()
 {
-    ListaSLI * nova = (ListaSLI *) malloc(sizeof(ListaSLI));
+    ListaSLI *nova = (ListaSLI *) malloc(sizeof(ListaSLI));
     nova->tamanho = 0;
     nova->tamanho = NULL;
     return nova;

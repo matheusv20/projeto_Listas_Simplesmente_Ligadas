@@ -6,11 +6,11 @@
 
 typedef struct listasimples_int
 {
-    NoSLI * inicio;
+    NoSLI *inicio;
     int tamanho;
 } ListaSLI;
 
-ListaSLI * criarListaSLI();
+ListaSLI *criarListaSLI();
 
 void mostrarListaSLI(ListaSLI *pontLista);
 

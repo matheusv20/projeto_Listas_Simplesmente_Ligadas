@@ -8,9 +8,9 @@
 typedef struct nosimples_int
 {
     int valor;
-    struct nosimples_int * proximo;
+    struct nosimples_int *proximo;
 } NoSLI;
 
-NoSLI * criarNoSLI(int valor, NoSLI * proximo);
+NoSLI *criarNoSLI(int valor, NoSLI *proximo);
 
 #endif
