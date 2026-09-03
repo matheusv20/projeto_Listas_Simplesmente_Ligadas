@@ -81,6 +81,8 @@ int main()
     printf("Ultimo Elemento da Lista: %d", obterValorFimSLI(lista2));
     espaco();
 
+    printf("Fim!");
+
 
     
     return 0;
