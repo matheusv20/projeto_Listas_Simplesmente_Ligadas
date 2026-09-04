@@ -2,6 +2,7 @@
 #define NOSLI_H 1
 
 #include <stdlib.h>
+#include <stdio.h>
 
 
 

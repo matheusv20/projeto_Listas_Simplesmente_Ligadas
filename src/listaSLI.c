@@ -5,7 +5,7 @@ ListaSLI * criarListaSLI()
 {
     ListaSLI *nova = (ListaSLI *) malloc(sizeof(ListaSLI));
     nova->tamanho = 0;
-    nova->tamanho = NULL;
+    nova->inicio = NULL;
     return nova;
 }
 
@@ -138,16 +138,15 @@ int removerInicioLSLI(ListaSLI *pontLista)
     // 1 ou + DE 1 ELEMENTO
     else
     {
-        NoSLI *pontAux = pontLista->inicio; //criando ponteiro auxiliar para o nó que será removido
+        NoSLI *pontAux = pontLista->inicio; //guarda o endereço do primeiro nó
 
-        pontAux->proximo = pontLista->inicio->proximo; //fazendo o ponteiro auxiliar apontar para o próximo nó da lista
+        pontLista->inicio = pontAux->proximo; //faz o inicio da lista apontar para o segundo nó
 
-        pontLista->inicio = pontAux->proximo; //fazendo o início da lista apontar para o próximo nó da lista
+        free(pontAux); //remove o antigo primeiro nó da memória
 
-        free(pontAux); //liberando a memória do nó que foi removido
         pontLista->tamanho--; //diminuindo o tamanho da lista
 
-        
+        return 1;
     }
 }
 
