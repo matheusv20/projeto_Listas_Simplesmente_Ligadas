@@ -43,7 +43,7 @@ int main()
     mostrarListaSLI(lista);
     espaco();
 
-    printf("Remover o primeiro elemento da lista(se deu certo = 1, errado = 0):  %d\n", removerInicioLSLI(lista));
+    printf("Remover o primeiro elemento da lista(se deu certo = 1, errado = 0):  %d\n\n", removerInicioLSLI(lista));
     mostrarListaSLI(lista);
     espaco();
 
@@ -79,8 +79,7 @@ int main()
     mostrarListaSLI(lista2);
     espaco();
 
-    printf("Remover o primeiro elemento da lista(se deu certo = 1, errado = 0): %d", removerInicioLSLI(lista2));
-    espaco();
+    printf("Remover o primeiro elemento da lista(se deu certo = 1, errado = 0): %d\n\n", removerInicioLSLI(lista2));
     mostrarListaSLI(lista2);
     espaco();
 
