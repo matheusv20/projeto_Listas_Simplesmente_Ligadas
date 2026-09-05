@@ -77,7 +77,7 @@ int main()
 
     InserirInicioSLI(100, lista2);
     mostrarListaSLI(lista2);
-    espaco();
+    espaco(); 
 
     printf("Remover o primeiro elemento da lista(se deu certo = 1, errado = 0): %d\n\n", removerInicioLSLI(lista2));
     mostrarListaSLI(lista2);
@@ -89,7 +89,7 @@ int main()
     printf("Ultimo Elemento da Lista: %d", obterValorFimSLI(lista2));
     espaco();
 
-    printf("Fim!");
+    printf("Finish! Thanks!"); 
 
 
     
