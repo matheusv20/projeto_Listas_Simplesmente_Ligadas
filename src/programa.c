@@ -18,47 +18,67 @@ int main()
     printf("+--------------------------------+\n");
     espaco();
 
-    printf("-> PELO FIM: ");
+    printf("+--------------+\n");
+    printf("| -> PELO FIM  |\n");
+    printf("+--------------+\n");
     espaco();
 
+    printf("// Mostrando o primeiro elemento da lista: \n");
     printf("Primeiro Elemento da Lista: %d", obterValorInicioSLI(lista));
     espaco();
 
+    printf("// Mostrando o último elemento da lista: \n");
     printf("Ultimo Elemento da Lista: %d", obterValorFimSLI(lista));
     espaco();
-    espaco();
 
+    printf("// Mostrando a lista: \n");
     mostrarListaSLI(lista);
     espaco();
 
+    printf("// Inserindo o primeiro elemento da lista pelo fim e mostrando ela: \n");
     inserirFimSLI(10, lista);
     mostrarListaSLI(lista);
     espaco();
 
+    printf("// Inserindo mais um elemento na lista pelo fim e mostrando ela: \n");
     inserirFimSLI(20, lista);
     mostrarListaSLI(lista);
     espaco();
 
+    printf("// Inserindo mais um elemento na lista pelo fim e mostrando ela: \n");
     inserirFimSLI(30, lista);
     mostrarListaSLI(lista);
     espaco();
 
-    printf("Remover o primeiro elemento da lista(se deu certo = 1, errado = 0):  %d\n\n", removerInicioLSLI(lista));
+    printf("// Removendo o primeiro elemento da lista e mostrando ela: \n");
+    printf("Remover o primeiro elemento da lista (se deu certo = 1, errado = 0):  %d\n\n", removerInicioLSLI(lista));
     mostrarListaSLI(lista);
     espaco();
+    espaco();
 
+    printf("// Mostrando o primeiro elemento da lista: \n");
     printf("Primeiro Elemento da Lista: %d", obterValorInicioSLI(lista));
     espaco();
 
+    printf("// Mostrando o último elemento da lista: \n");
     printf("Ultimo Elemento da Lista: %d", obterValorFimSLI(lista));
+    espaco();
+
+    printf("// Removendo o último elemento da lista e mostrando ela: \n");
+    printf("Remover último elemento da lista (se deu certo = 1, errado = 0): %d\n\n", removerFimLSLI(lista));
+    mostrarListaSLI(lista);
     espaco();
     espaco();
 
-    printf("-> PELO INÍCIO: ");
+    printf("+----------------+\n");
+    printf("| -> PELO INÍCIO |\n");
+    printf("+----------------+\n");
     espaco();
 
     mostrarListaSLI(lista2);
     espaco();
+
+    removerInicioLSLI(lista2);
 
     printf("Primeiro Elemento da Lista: %d", obterValorInicioSLI(lista2));
     espaco();
@@ -89,7 +109,14 @@ int main()
     printf("Ultimo Elemento da Lista: %d", obterValorFimSLI(lista2));
     espaco();
 
-    printf("Finish! Thanks!"); 
+    printf("// Limpando lista");
+    limparLSLI(lista2);
+    espaco();
+
+    mostrarListaSLI(lista2);
+
+    printf("Fim!");
+    espaco(); 
 
 
     

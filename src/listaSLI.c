@@ -150,3 +150,67 @@ int removerInicioLSLI(ListaSLI *pontLista)
     }
 }
 
+// 0 -  NÃO REMOVEU
+// 1 - REMOVEU
+int removerFimLSLI(ListaSLI *pontLista)
+{
+    //VAZIA
+    if (pontLista->inicio == NULL)
+    {
+        printf("Lista Vazia! ");
+        return 0;
+    }
+
+    // 1 ou + DE 1 ELEMENTO
+    else
+    {
+        NoSLI *pontAux = pontLista->inicio;
+        while (pontAux->proximo->proximo != NULL)
+        {
+            pontAux = pontAux->proximo;
+        }
+        free(pontAux->proximo);
+        pontAux->proximo = NULL;
+        pontLista->tamanho--;
+        return 1;
+    }
+}
+
+
+void limparLSLI(ListaSLI *pontLista)
+{
+    //VAZIA
+    if (pontLista->tamanho == 0)
+    {
+        printf("Lista Vazia!");
+    }
+
+    //1 ou + DE 1 ELEMENTO
+    else
+    {   
+        NoSLI *pontAux = pontLista->inicio; //guarda o endereço do primeiro nó
+
+        NoSLI *pontAux2 = pontAux->proximo; //guarda o endereço do próximo nó
+
+        while (pontAux2 != NULL)
+        {
+            free(pontAux); //limpou o primeiro nó
+            pontAux = pontAux2; //fez o primeiro apontar para o proximo
+            pontAux2 = pontAux2->proximo; //fez o próximo apontar para o outro próximo
+        }
+        free(pontAux); //limpou o último que ficou
+
+        pontLista->tamanho = 0; //diminuiu o tamanho pra 0
+    }
+}
+
+
+void destruirLSLI(ListaSLI **pontPontLista)
+{
+    limparLSLI(*pontPontLista);
+    free(*pontPontLista);
+    *pontPontLista = NULL;
+}
+
+
+
