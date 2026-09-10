@@ -16,6 +16,7 @@ void mostrarListaSLI(ListaSLI *pontLista);
 
 void inserirFimSLI(int valor, ListaSLI *pontLista);
 void InserirInicioSLI(int valor, ListaSLI *pontLista);
+int inserirPosicaoLSLI(int valor, int posicao, ListaSLI *pontLista);
 
 int obterValorInicioSLI(ListaSLI *pontLista);
 int obterValorFimSLI(ListaSLI *pontLista);
@@ -25,6 +26,10 @@ int removerFimLSLI(ListaSLI *pontLista);
 
 void limparLSLI(ListaSLI *pontLista);
 void destruirLSLI(ListaSLI **pontPontLista);
+
+int trocarValorInicioLSLI(int valor, ListaSLI *pontLista);
+int trocarValorFimLSLI(int valor, ListaSLI *pontLista);
+
 
 
 

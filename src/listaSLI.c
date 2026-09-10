@@ -10,6 +10,7 @@ ListaSLI * criarListaSLI()
 }
 
 
+
 void mostrarListaSLI(ListaSLI *pontLista)
 {
     printf("Tamanho da Lista = %d\n", pontLista->tamanho); // SEMPRE MOSTRAR O TAMANHO
@@ -34,6 +35,7 @@ void mostrarListaSLI(ListaSLI *pontLista)
         printf("NULL\n");
     }
 }
+
 
 
 void inserirFimSLI(int valor, ListaSLI *pontLista)
@@ -61,6 +63,8 @@ void inserirFimSLI(int valor, ListaSLI *pontLista)
 
 }
 
+
+
 void InserirInicioSLI(int valor, ListaSLI *pontLista)
 {
     NoSLI *novo = criarNoSLI(valor, NULL); // A mesmo passo para todas as opções
@@ -82,6 +86,66 @@ void InserirInicioSLI(int valor, ListaSLI *pontLista)
     pontLista->tamanho++; //C mesmo passo para todas opções 
 
 }
+
+
+// Deve inserir esse valor nessa posicao, "deslocando" os elementos
+// para a direita
+// TAM = 3 | 3 -> 7 -> 5 -> NULL
+//           0    1    2  (posicao)
+// lista vazia -> avisar o usuario que esta vazia, nao inserir e retornar 0
+// posicao negativa -> avisar o usuario, nao inserir e retornar 0
+// posicao > (tamanho -1) -> avisar o usuario, nao inserir e retornar 0
+// posicao valida:
+// TAM = 3 | 3 -> 7 -> 5 -> NULL, inserirPosicao(9, 1, lista)
+// TAM = 4 | 3 -> 9 -> 7 -> 5 -> NULL, return 1
+int inserirPosicaoLSLI(int valor, int posicao, ListaSLI *pontLista)
+{
+    if (posicao >= 0)
+    {   
+        NoSLI *novo = criarNoSLI(valor, NULL);
+        //VAZIA
+        if (pontLista->tamanho == 0)
+        {
+            printf("Lista Vazia!");
+            return 0;
+        }
+
+        else if (pontLista->tamanho == 1)
+        {
+            InserirInicioSLI(valor, pontLista);
+            return 1;
+        }
+        else
+        {
+            NoSLI *pontAux = pontLista->inicio;
+            
+            int contador = 0;
+
+            while (contador != (posicao - 1))
+            {
+                pontAux = pontAux->proximo;
+                contador++;
+            }
+            
+            novo->proximo = pontAux->proximo;
+
+            pontAux->proximo = novo;
+
+            novo->valor = valor;
+
+            pontLista->tamanho++;
+
+            return 1;
+        }
+    }
+    else
+    {
+        printf("Não existe posição negativa! \n\n");
+        return 0;
+    }
+}
+
+
 
 int obterValorInicioSLI(ListaSLI *pontLista)
 {
@@ -212,5 +276,44 @@ void destruirLSLI(ListaSLI **pontPontLista)
     *pontPontLista = NULL;
 }
 
+int trocarValorInicioLSLI(int valor, ListaSLI *pontLista)
+{
+    //VAZIA
+    if (pontLista->tamanho == 0)
+    {
+        printf("Impossível Trocar o Valor de uma Lista Vazia!");
+        return 0;
+    }
+    // 1 ou + DE 1 ELEMENTO
+    else
+    {
+        pontLista->inicio->valor = valor;
+        return 1;
+    }
+}
+
+int trocarValorFimLSLI(int valor, ListaSLI *pontLista)
+{
+    //VAZIA
+    if (pontLista->tamanho == 0)
+    {
+        printf("Impossível Trocar o Valor de uma Lista Vazia!");
+        return 0;
+    }
+    // 1 ou + DE 1 ELEMENTO
+    else
+    {
+        NoSLI *pontAux = pontLista->inicio; //guarda o endereço do primeiro nó
+
+        while (pontAux->proximo != NULL)
+        {
+            pontAux = pontAux->proximo;
+        }
+
+        pontAux->valor = valor;
+
+        return 1;
+    }
+}
 
 

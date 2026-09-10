@@ -13,6 +13,9 @@ int main()
     ListaSLI * lista2 = criarListaSLI();
     espaco();
 
+    ListaSLI * lista3 = criarListaSLI();
+    espaco();
+
     printf("+--------------------------------+\n");
     printf("| INSERIR ELEMENTOS EM UMA LISTA |\n");
     printf("+--------------------------------+\n");
@@ -99,7 +102,7 @@ int main()
     mostrarListaSLI(lista2);
     espaco(); 
 
-    printf("Remover o primeiro elemento da lista(se deu certo = 1, errado = 0): %d\n\n", removerInicioLSLI(lista2));
+    printf("Remover o primeiro elemento da lista (se deu certo = 1, errado = 0): %d\n\n", removerInicioLSLI(lista2));
     mostrarListaSLI(lista2);
     espaco();
 
@@ -114,11 +117,57 @@ int main()
     espaco();
 
     mostrarListaSLI(lista2);
-
-    printf("Fim!");
+    espaco();
     espaco(); 
 
 
+    printf("+--------------------------------+\n");
+    printf("| -> LISTA ALEATORIA PARA TESTES |\n");
+    printf("+--------------------------------+\n");
+    espaco();
     
+
+    InserirInicioSLI(55, lista3);
+    InserirInicioSLI(30, lista3);
+    InserirInicioSLI(67, lista3);
+    InserirInicioSLI(100, lista3);
+    mostrarListaSLI(lista3);
+    espaco();
+
+    int valorTrocar = 0;
+    int elementoInserir = 0;
+    int posicaoInserir = 0;
+
+
+    printf("// Trocando o valor do primeiro elemento da lista e mostrando ela: \n");
+    printf("Digite o valor que você deseja inserir no primeiro nó na lista: ");
+    scanf("%d", &valorTrocar);
+    espaco();
+    printf("Trocar o valor do inicio da lista (se deu certo = 1, errado = 0): %d \n\n", trocarValorInicioLSLI(valorTrocar, lista3));
+    mostrarListaSLI(lista3);
+    espaco();
+
+
+    printf("// Trocando o valor do último elemento da lista e mostrando ela: \n");
+    printf("Digite o valor que você deseja inserir no último nó na lista: ");
+    scanf("%d", &valorTrocar);
+    espaco();
+    printf("Trocar o valor do fim da lista (se deu certo = 1, errado = 0): %d \n\n", trocarValorFimLSLI(valorTrocar, lista3));
+    mostrarListaSLI(lista3);
+    espaco();
+
+    
+    printf("// Inserindo um valor em alguma posicao da lista e mostrando ela: \n");
+    printf("Digite o valor que você deseja inserir na lista: ");
+    scanf("%d", &elementoInserir);
+    espaco();
+    printf("Digite a posição que você deseja inserir: ");
+    scanf("%d", &posicaoInserir);
+    espaco();
+    printf("Inserir elemento em alguma posição da lista (se deu certo = 1, errado = 0): %d \n\n", inserirPosicaoLSLI(elementoInserir, posicaoInserir, lista3));
+    mostrarListaSLI(lista3);
+    espaco();
+
+
     return 0;
 }
