@@ -103,6 +103,7 @@ int inserirPosicaoLSLI(int valor, int posicao, ListaSLI *pontLista)
     if (posicao >= 0)
     {   
         NoSLI *novo = criarNoSLI(valor, NULL);
+
         //VAZIA
         if (pontLista->tamanho == 0)
         {
@@ -110,31 +111,41 @@ int inserirPosicaoLSLI(int valor, int posicao, ListaSLI *pontLista)
             return 0;
         }
 
+        //1 ELEMENTO
         else if (pontLista->tamanho == 1)
         {
             InserirInicioSLI(valor, pontLista);
             return 1;
         }
+
+        // + DE 1 ELEMENTO
         else
         {
-            NoSLI *pontAux = pontLista->inicio;
-            
-            int contador = 0;
-
-            while (contador != (posicao - 1))
+            if (posicao == 0)
             {
-                pontAux = pontAux->proximo;
-                contador++;
+                InserirInicioSLI(valor, pontLista);
             }
             
-            novo->proximo = pontAux->proximo;
+            else
+            {
+                NoSLI *pontAux = pontLista->inicio;
+                            
+                int contador = 0;
 
-            pontAux->proximo = novo;
+                while (contador != (posicao - 1))
+                    {
+                        pontAux = pontAux->proximo;
+                        contador++;
+                    }
+                            
+                novo->proximo = pontAux->proximo;
 
-            novo->valor = valor;
+                pontAux->proximo = novo;
 
-            pontLista->tamanho++;
+                novo->valor = valor;
 
+                pontLista->tamanho++;
+            }
             return 1;
         }
     }

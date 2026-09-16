@@ -164,7 +164,7 @@ int main()
     printf("Digite a posição que você deseja inserir: ");
     scanf("%d", &posicaoInserir);
     espaco();
-    printf("Inserir elemento em alguma posição da lista (se deu certo = 1, errado = 0): %d \n\n", inserirPosicaoLSLI(elementoInserir, posicaoInserir, lista3));
+    printf("Inserindo o elemento %d na posição %d da lista (se deu certo = 1, errado = 0): %d \n\n", elementoInserir, posicaoInserir, inserirPosicaoLSLI(elementoInserir, posicaoInserir, lista3));
     mostrarListaSLI(lista3);
     espaco();
 
