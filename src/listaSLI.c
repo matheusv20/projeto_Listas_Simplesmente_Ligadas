@@ -88,31 +88,30 @@ void InserirInicioSLI(int valor, ListaSLI *pontLista)
 }
 
 
-// Deve inserir esse valor nessa posicao, "deslocando" os elementos
-// para a direita
-// TAM = 3 | 3 -> 7 -> 5 -> NULL
-//           0    1    2  (posicao)
-// lista vazia -> avisar o usuario que esta vazia, nao inserir e retornar 0
-// posicao negativa -> avisar o usuario, nao inserir e retornar 0
-// posicao > (tamanho -1) -> avisar o usuario, nao inserir e retornar 0
-// posicao valida:
-// TAM = 3 | 3 -> 7 -> 5 -> NULL, inserirPosicao(9, 1, lista)
-// TAM = 4 | 3 -> 9 -> 7 -> 5 -> NULL, return 1
 int inserirPosicaoLSLI(int valor, int posicao, ListaSLI *pontLista)
 {
-    if (posicao >= 0)
-    {   
+    if (posicao < 0)
+    {
+        printf("Não existe posição negativa!\n");
+        return 0;
+    }
+    else if (pontLista->tamanho == 0)
+    {
+        printf("Não é posível inserir elementos em uma lista vazia!\n");
+        return 0;
+    }
+
+    else if (posicao > pontLista->tamanho)
+    {
+        printf("Não é possível inserir elementos em uma posição maior que o tamanho da lista!\n");
+        return 0;
+    }
+    else
+    {
         NoSLI *novo = criarNoSLI(valor, NULL);
 
-        //VAZIA
-        if (pontLista->tamanho == 0)
-        {
-            printf("Lista Vazia!");
-            return 0;
-        }
-
         //1 ELEMENTO
-        else if (pontLista->tamanho == 1)
+        if (pontLista->tamanho == 1)
         {
             InserirInicioSLI(valor, pontLista);
             return 1;
@@ -124,6 +123,7 @@ int inserirPosicaoLSLI(int valor, int posicao, ListaSLI *pontLista)
             if (posicao == 0)
             {
                 InserirInicioSLI(valor, pontLista);
+                return 1;
             }
             
             else
@@ -148,11 +148,6 @@ int inserirPosicaoLSLI(int valor, int posicao, ListaSLI *pontLista)
             }
             return 1;
         }
-    }
-    else
-    {
-        printf("Não existe posição negativa! \n\n");
-        return 0;
     }
 }
 
@@ -252,6 +247,72 @@ int removerFimLSLI(ListaSLI *pontLista)
 }
 
 
+int removerPosicaoLSLI(int posicao, ListaSLI *pontLista)
+{
+    if (posicao < 0)
+    {
+        printf("Não existe posição negativa!\n");
+        return 0;
+    }
+    else if (pontLista->tamanho == 0)
+    {
+        printf("Não é posível remover elementos em uma lista vazia!\n");
+        return 0;
+    }
+
+    else if (posicao > pontLista->tamanho)
+    {
+        printf("Não é possível remover elementos em uma posição maior que o tamanho da lista!\n");
+        return 0;
+    }
+    else
+    {   
+        // 1 ELEMEMENTO
+        if (pontLista->tamanho == 1)
+        {
+            removerInicioLSLI(pontLista);
+            return 1;
+        }
+        
+        // + DE 1 ELEMENTOS QUERENDO REMOVER O PRIMEIRO
+        else if (posicao == 0)
+        {
+            removerInicioLSLI(pontLista);
+            return 1;
+        }
+        
+        // + DE 1 ELEMENTOS QUERENDO REMOVER O ÚLTIMO
+        else if (posicao == ((pontLista->tamanho) - 1))
+        {
+            removerFimLSLI(pontLista);
+            return 1;
+        }
+
+        // + DE 1 ELEMENTO QUERENDO REMOVER QUALQUER 1
+        else
+        {
+            NoSLI *pontAux = pontLista->inicio;
+            NoSLI *pontAux2 = pontLista->inicio;
+                            
+            int contador = 0;
+
+            while (contador != (posicao - 1))
+                {
+                    pontAux = pontAux->proximo;
+                    contador++;
+                }
+            
+            pontAux2 = pontAux->proximo;
+            pontAux->proximo = pontAux2->proximo;
+
+            free(pontAux2);
+            pontLista->tamanho--;
+            return 1;
+        }
+    }
+}
+
+
 void limparLSLI(ListaSLI *pontLista)
 {
     //VAZIA
@@ -324,6 +385,51 @@ int trocarValorFimLSLI(int valor, ListaSLI *pontLista)
         pontAux->valor = valor;
 
         return 1;
+    }
+}
+
+int trocarPosicaoLSLI(int valor, int posicao, ListaSLI *pontLista)
+{
+    if (posicao < 0)
+    {
+        printf("Não existe posição negativa!\n");
+        return 0;
+    }
+    else if (pontLista->tamanho == 0)
+    {
+        printf("Não é posível trocar elementos em uma lista vazia!\n");
+        return 0;
+    }
+
+    else if (posicao > pontLista->tamanho)
+    {
+        printf("Não é possível trocar o elemento em uma posição maior que o tamanho da lista!\n");
+        return 0;
+    }
+    else 
+    {   
+        // 1 ELEMENTO
+        if (pontLista->tamanho == 1)
+        {
+            pontLista->inicio->valor == valor;
+            return 1;
+        }
+        
+        else
+        {
+            NoSLI *pontAux = pontLista->inicio;
+
+            int contador = 0;
+
+            while(contador < posicao)
+            {
+                pontAux = pontAux->proximo;
+                contador++;
+            }
+
+            pontAux->valor = valor;
+            return 1;
+        }
     }
 }
 

@@ -23,12 +23,15 @@ int obterValorFimSLI(ListaSLI *pontLista);
 
 int removerInicioLSLI(ListaSLI *pontLista);
 int removerFimLSLI(ListaSLI *pontLista);
+int removerPosicaoLSLI(int posicao, ListaSLI *pontLista);
 
 void limparLSLI(ListaSLI *pontLista);
 void destruirLSLI(ListaSLI **pontPontLista);
 
 int trocarValorInicioLSLI(int valor, ListaSLI *pontLista);
 int trocarValorFimLSLI(int valor, ListaSLI *pontLista);
+int trocarPosicaoLSLI(int valor, int posicao, ListaSLI *pontLista);
+
 
 
 
