@@ -380,6 +380,7 @@ void limparLSLI(ListaSLI *pontLista)
         free(pontAux); //limpou o último que ficou
 
         pontLista->tamanho = 0; //diminuiu o tamanho pra 0
+        pontLista->inicio = NULL;
     }
 }
 
