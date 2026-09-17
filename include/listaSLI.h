@@ -20,6 +20,7 @@ int inserirPosicaoLSLI(int valor, int posicao, ListaSLI *pontLista);
 
 int obterValorInicioSLI(ListaSLI *pontLista);
 int obterValorFimSLI(ListaSLI *pontLista);
+int obterValorPosicaoSLI(int posicao, ListaSLI *pontLista);
 
 int removerInicioLSLI(ListaSLI *pontLista);
 int removerFimLSLI(ListaSLI *pontLista);

@@ -139,6 +139,7 @@ int main()
     int posicaoInserir = 0;
     int posicaoRemover = 0;
     int posicaoTrocar = 0;
+    int elementoObter = 0;
 
 
     // printf("// Trocando o valor do primeiro elemento da lista e mostrando ela: \n");
@@ -178,15 +179,21 @@ int main()
     // mostrarListaSLI(lista3);
     // espaco();
 
-    printf("// Trocando um valor em alguma posicao da lista e mostrando ela: \n");
-    printf("Digite a posição que você deseja trocar: ");
-    scanf("%d", &posicaoTrocar);
-    espaco();
-    printf("Digite o valor que você deseja trocar: ");
-    scanf("%d", &valorTrocar);
-    espaco();
-    printf("Trocando o elemento na posição %d da lista por %d (se deu certo = 1, errado = 0): %d \n\n", posicaoTrocar, valorTrocar, trocarPosicaoLSLI(valorTrocar, posicaoTrocar, lista3));
-    mostrarListaSLI(lista3);
+    // printf("// Trocando um valor em alguma posicao da lista e mostrando ela: \n");
+    // printf("Digite a posição que você deseja trocar: ");
+    // scanf("%d", &posicaoTrocar);
+    // espaco();
+    // printf("Digite o valor que você deseja trocar: ");
+    // scanf("%d", &valorTrocar);
+    // espaco();
+    // printf("Trocando o elemento na posição %d da lista por %d (se deu certo = 1, errado = 0): %d \n\n", posicaoTrocar, valorTrocar, trocarPosicaoLSLI(valorTrocar, posicaoTrocar, lista3));
+    // mostrarListaSLI(lista3);
+    // espaco();
+
+    printf("// Mostrando algum elemento da lista: \n");
+    printf("Digite a posição que você deseja obter o elemento: ");
+    scanf("%d", &elementoObter);
+    printf("O elemento Nº %d da Lista é %d", elementoObter, obterValorPosicaoSLI(elementoObter, lista3));
     espaco();
 
     return 0;

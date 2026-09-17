@@ -101,7 +101,7 @@ int inserirPosicaoLSLI(int valor, int posicao, ListaSLI *pontLista)
         return 0;
     }
 
-    else if (posicao > pontLista->tamanho)
+    else if (posicao >= pontLista->tamanho)
     {
         printf("Não é possível inserir elementos em uma posição maior que o tamanho da lista!\n");
         return 0;
@@ -193,6 +193,49 @@ int obterValorFimSLI(ListaSLI *pontLista)
     }
 }
 
+int obterValorPosicaoSLI(int posicao, ListaSLI *pontLista)
+{
+    if (posicao < 0)
+    {
+        printf("Não existe posição negativa!\n");
+        return 0;
+    }
+    else if (pontLista->tamanho == 0)
+    {
+        printf("Não é posível obter o valor de elementos em uma lista vazia!\n");
+        return 0;
+    }
+
+    else if (posicao >= pontLista->tamanho)
+    {
+        printf("Não é possível obter o valor de elementos em uma posição maior que o tamanho da lista!\n");
+        return 0;
+    }
+    else 
+    {   
+        // 1 ELEMENTO
+        if (pontLista->tamanho == 1)
+        {
+            return pontLista->inicio->valor;
+        }
+        
+        else
+        {
+            NoSLI *pontAux = pontLista->inicio;
+
+            int contador = 0;
+
+            while(contador < posicao)
+            {
+                pontAux = pontAux->proximo;
+                contador++;
+            }
+
+            return pontAux->valor;
+        }
+    }
+}
+
 
 // 0 -  NÃO REMOVEU
 // 1 - REMOVEU
@@ -260,7 +303,7 @@ int removerPosicaoLSLI(int posicao, ListaSLI *pontLista)
         return 0;
     }
 
-    else if (posicao > pontLista->tamanho)
+    else if (posicao >= pontLista->tamanho)
     {
         printf("Não é possível remover elementos em uma posição maior que o tamanho da lista!\n");
         return 0;
@@ -401,7 +444,7 @@ int trocarPosicaoLSLI(int valor, int posicao, ListaSLI *pontLista)
         return 0;
     }
 
-    else if (posicao > pontLista->tamanho)
+    else if (posicao >= pontLista->tamanho)
     {
         printf("Não é possível trocar o elemento em uma posição maior que o tamanho da lista!\n");
         return 0;
@@ -411,7 +454,7 @@ int trocarPosicaoLSLI(int valor, int posicao, ListaSLI *pontLista)
         // 1 ELEMENTO
         if (pontLista->tamanho == 1)
         {
-            pontLista->inicio->valor == valor;
+            pontLista->inicio->valor = valor;
             return 1;
         }
         
